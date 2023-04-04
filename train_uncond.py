@@ -180,6 +180,7 @@ class DemoCallback(pl.Callback):
             log_dict[f'demo_melspec_left'] = wandb.Image(audio_spectrogram_image(fakes))
 
             trainer.logger.experiment.log(log_dict, step=trainer.global_step)
+            wandb.save('../working/models/*ckpt*')
         except Exception as e:
             print(f'{type(e).__name__}: {e}', file=sys.stderr)
 
